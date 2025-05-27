@@ -1,0 +1,6 @@
+@Sol.PuntoVenta.WebApi_HostAddress = http://localhost:5273
+
+GET {{Sol.PuntoVenta.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

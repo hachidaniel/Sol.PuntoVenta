@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sol.PuntoVenta.Negocio", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sol.PuntoVenta.Web.Presentacion", "Sol.PuntoVenta.Web.Presentacion\Sol.PuntoVenta.Web.Presentacion.csproj", "{7E8CB557-90D9-4FF6-BD47-2403D553B2C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sol.PuntoVenta.WebApi", "Sol.PuntoVenta.WebApi\Sol.PuntoVenta.WebApi.csproj", "{7DC6AA2C-01D2-4033-A8B8-E5295CB6D8CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7E8CB557-90D9-4FF6-BD47-2403D553B2C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E8CB557-90D9-4FF6-BD47-2403D553B2C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E8CB557-90D9-4FF6-BD47-2403D553B2C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DC6AA2C-01D2-4033-A8B8-E5295CB6D8CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DC6AA2C-01D2-4033-A8B8-E5295CB6D8CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DC6AA2C-01D2-4033-A8B8-E5295CB6D8CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DC6AA2C-01D2-4033-A8B8-E5295CB6D8CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

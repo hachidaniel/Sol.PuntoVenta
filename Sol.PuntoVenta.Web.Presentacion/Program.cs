@@ -1,13 +1,8 @@
-
-using Sol.PuntoVenta.Data.Connections;
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.Configure<ConnectionStrings>(builder.Configuration.GetSection("ConnectionStrings"));
-//builder.Services.AddSingleton<PuntoVentaData>();
+
 
 var app = builder.Build();
 

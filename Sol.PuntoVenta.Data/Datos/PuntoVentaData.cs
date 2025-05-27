@@ -22,6 +22,7 @@ namespace Sol.PuntoVenta.Data.Datos
         public async Task<Response<List<E_PuntoVenta>>> GetListPuntoVenta(Generico generico)
         {
             Response<List<E_PuntoVenta>> listPuntoVetna = new Response<List<E_PuntoVenta>>();
+            List<E_PuntoVenta> venta = new List<E_PuntoVenta>();
             try
             {
                 using (var conexion = new SqlConnection(connection.CadenaSQL))
@@ -34,7 +35,7 @@ namespace Sol.PuntoVenta.Data.Datos
                     {
                         while (reader.Read())
                         {
-                            listPuntoVetna.Objeto?.Add(new E_PuntoVenta()
+                            venta.Add(new E_PuntoVenta()
                             {
                                 Id_PuntoVenta = Convert.ToInt16(reader["Id_PuntoVenta"]),
                                 Descripcion_PuntoVenta = reader["Descripcion_PuntoVenta"].ToString(),
@@ -44,6 +45,7 @@ namespace Sol.PuntoVenta.Data.Datos
                           
                         }
                     }
+                    listPuntoVetna.Objeto = venta;
                 }
                 listPuntoVetna.MensajeSucces = "OK";
                 listPuntoVetna.IsSuccess = true;

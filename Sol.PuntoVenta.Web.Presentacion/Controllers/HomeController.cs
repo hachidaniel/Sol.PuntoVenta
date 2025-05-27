@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Sol.PuntoVenta.Entidades;
+using Sol.PuntoVenta.Negocio.Negocios;
 using Sol.PuntoVenta.Web.Presentacion.Models;
 using System.Diagnostics;
 
@@ -10,12 +12,12 @@ namespace Sol.PuntoVenta.Web.Presentacion.Controllers
 
         public HomeController(ILogger<HomeController> logger)
         {
-            _logger = logger;
+            _logger = logger;  
         }
 
-        public IActionResult Index()
+        public Task<IActionResult> Index()
         {
-            return View();
+            return Task.FromResult<IActionResult>(View());
         }
 
         public IActionResult Privacy()
@@ -28,5 +30,7 @@ namespace Sol.PuntoVenta.Web.Presentacion.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+    
     }
 }
