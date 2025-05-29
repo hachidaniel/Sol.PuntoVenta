@@ -139,6 +139,25 @@ $('.btnGuardarFrm').on('click', function () {
         
     }
     else if (bEstatusGuardado == 3) {
+
+
+    }
+    bEstatusGuardado = 0;
+});
+
+$('.btEliminar').on('click', function () {
+    bEstatusGuardado = 3;
+    var parametros = {};
+    if (DataRow != undefined) {
+
+        DesabilitarHabilitarBotones(true);
+        //$('#Matenimiento').addClass('active show');
+        //$('#Consulta').removeClass('active show');
+        //$('.consultaData').removeClass('active');
+        //$('.mantenimientoData').addClass('active');
+        //$("#txtDescripcion").prop("disabled", true);
+        VisibilidadBotones(true);
+        //$("#txtDescripcion").val(DataRow[0].descripcion_PuntoVenta);
         parametros = {
             id: DataRow[0].id_PuntoVenta,
             text: "",
@@ -152,7 +171,7 @@ $('.btnGuardarFrm').on('click', function () {
             cancelButtonColor: "#d33",
             confirmButtonText: "Si, quiero eliminar",
             showCancelButton: true,
-            cancelButtonText:"Cancelar"
+            cancelButtonText: "Cancelar"
         }).then((result) => {
             if (result.isConfirmed) {
                 Ajax(JSON.stringify(parametros), urlstring + 'api/PuntoVenta').Delete().then((data) => {
@@ -176,27 +195,10 @@ $('.btnGuardarFrm').on('click', function () {
                 }).catch((error) => {
                     $('#mainloader').addClass('d-none');
                 });
+            } else {
+                DesabilitarHabilitarBotones(false);
             }
         });
-
-       
-
-    }
-    bEstatusGuardado = 0;
-});
-
-$('.btEliminar').on('click', function () {
-    bEstatusGuardado = 3;
-    if (DataRow != undefined) {
-
-        DesabilitarHabilitarBotones(true);
-        $('#Matenimiento').addClass('active show');
-        $('#Consulta').removeClass('active show');
-        $('.consultaData').removeClass('active');
-        $('.mantenimientoData').addClass('active');
-        $("#txtDescripcion").prop("disabled", true);
-        VisibilidadBotones(true);
-        $("#txtDescripcion").val(DataRow[0].descripcion_PuntoVenta);
     } else {
         Swal.fire({
             title: "Debes de seleccionar un registro para poder actualizar",
@@ -212,11 +214,7 @@ $('#dataTablePuntoVenta').on('click', 'tbody tr', function (e) {
 
     if (classList.contains('selected')) {
         classList.remove('selected');
-        $(".btnNuevo").prop("disabled", false);
-        $(".btnActualizar").prop("disabled", false);
-        $(".btEliminar").prop("disabled", false);
-        $(".btnReporte").prop("disabled", false);
-        $(".btnSalir").prop("disabled", false);
+        DesabilitarHabilitarBotones(false);
     }
     else {
         $('#dataTablePuntoVenta').DataTable().rows('.selected').nodes().each((row) => row.classList.remove('selected'));
