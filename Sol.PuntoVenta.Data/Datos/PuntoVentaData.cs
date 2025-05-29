@@ -19,9 +19,9 @@ namespace Sol.PuntoVenta.Data.Datos
         /// </summary>
         /// <param name="generico"></param>
         /// <returns></returns>
-        public async Task<Response<List<E_PuntoVenta>>> GetListPuntoVenta(Generico generico)
+        public async Task<GoResponses<List<E_PuntoVenta>>> GetListPuntoVenta(Generico generico)
         {
-            Response<List<E_PuntoVenta>> listPuntoVetna = new Response<List<E_PuntoVenta>>();
+            GoResponses<List<E_PuntoVenta>> listPuntoVetna = new GoResponses<List<E_PuntoVenta>>();
             List<E_PuntoVenta> venta = new List<E_PuntoVenta>();
             try
             {
@@ -45,7 +45,7 @@ namespace Sol.PuntoVenta.Data.Datos
                           
                         }
                     }
-                    listPuntoVetna.Objeto = venta;
+                    listPuntoVetna.Data = venta;
                 }
                 listPuntoVetna.MensajeSucces = "OK";
                 listPuntoVetna.IsSuccess = true;
@@ -53,7 +53,7 @@ namespace Sol.PuntoVenta.Data.Datos
             }
             catch (Exception ex)
             {
-                listPuntoVetna.Objeto = null;
+                listPuntoVetna.Data = null;
                 listPuntoVetna.MensajeSucces = "";
                 listPuntoVetna.IsSuccess = false;
                 listPuntoVetna.MensajeSucces = ex.ToString();
@@ -69,9 +69,9 @@ namespace Sol.PuntoVenta.Data.Datos
         /// </summary>
         /// <param name="puntoVenta"></param>
         /// <returns></returns>
-        public async Task<Response<E_PuntoVenta>> InsertPuntoVenta(E_PuntoVenta puntoVenta) 
+        public async Task<GoResponses<E_PuntoVenta>> InsertUpdatePuntoVenta(E_PuntoVenta puntoVenta) 
         {
-            Response<E_PuntoVenta> RpuntoVenta = new Response<E_PuntoVenta>();
+            GoResponses<E_PuntoVenta> RpuntoVenta = new GoResponses<E_PuntoVenta>();
             E_PuntoVenta e_Punto = new E_PuntoVenta();
             try
             {
@@ -101,12 +101,12 @@ namespace Sol.PuntoVenta.Data.Datos
                 }
                 RpuntoVenta.MensajeSucces = "OK";
                 RpuntoVenta.IsSuccess = true;
-                RpuntoVenta.Objeto = e_Punto;
+                RpuntoVenta.Data = e_Punto;
 
             }
             catch (Exception ex)
             {
-                RpuntoVenta.Objeto = null;
+                RpuntoVenta.Data = null;
                 RpuntoVenta.MensajeSucces = "";
                 RpuntoVenta.IsSuccess = false;
                 RpuntoVenta.MensajeSucces = ex.ToString();
@@ -124,9 +124,9 @@ namespace Sol.PuntoVenta.Data.Datos
         /// </summary>
         /// <param name="puntoVenta"></param>
         /// <returns></returns>
-        public async Task<Response<bool>> EliminarPuntoVenta(Generico puntoVenta) 
+        public async Task<GoResponses<bool>> EliminarPuntoVenta(Generico puntoVenta) 
         {
-            Response<bool> listPuntoVetna = new Response<bool>();
+            GoResponses<bool> listPuntoVetna = new GoResponses<bool>();
             try
             {
                 using (var conexion = new SqlConnection(connection.CadenaSQL))
@@ -139,7 +139,7 @@ namespace Sol.PuntoVenta.Data.Datos
                     {
                         while (reader.Read())
                         {
-                            listPuntoVetna.Objeto = Convert.ToBoolean(reader["RESULTADO"]);
+                            listPuntoVetna.Data = Convert.ToBoolean(reader["RESULTADO"]);
                         }
                     }
                 }
@@ -149,7 +149,7 @@ namespace Sol.PuntoVenta.Data.Datos
             }
             catch (Exception ex)
             {
-                listPuntoVetna.Objeto = false;
+                listPuntoVetna.Data = false;
                 listPuntoVetna.MensajeSucces = "";
                 listPuntoVetna.IsSuccess = false;
                 listPuntoVetna.MensajeSucces = ex.ToString();

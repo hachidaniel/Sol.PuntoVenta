@@ -11,4 +11,12 @@
     <ProjectReference Include="..\Sol.PuntoVenta.Negocio\Sol.PuntoVenta.Negocio.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\startbootstrap-sb-admin-2-gh-pages\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+  </ItemGroup>
+
 </Project>

@@ -11,18 +11,18 @@ namespace Sol.PuntoVenta.Negocio.Negocios
          _puntoVentaData = puntoVentaData;
         }
 
-        public async Task<Response<List<E_PuntoVenta>>> GetListPuntoVenta(Generico generico) 
+        public async Task<GoResponses<List<E_PuntoVenta>>> GetListPuntoVenta(Generico generico) 
         {
             return await _puntoVentaData.GetListPuntoVenta(generico);
         }
 
-        public async Task<Response<E_PuntoVenta>> InsertPuntoVenta(E_PuntoVenta puntoVenta) 
+        public async Task<GoResponses<E_PuntoVenta>> InsertUpdatePuntoVenta(E_PuntoVenta puntoVenta) 
         {
-            return await _puntoVentaData.InsertPuntoVenta(puntoVenta);
+            return await _puntoVentaData.InsertUpdatePuntoVenta(puntoVenta);
         }
 
 
-        public async Task<Response<bool>> EliminarPuntoVenta(Generico puntoVenta) 
+        public async Task<GoResponses<bool>> EliminarPuntoVenta(Generico puntoVenta) 
         {
             return await _puntoVentaData.EliminarPuntoVenta(puntoVenta);
         }
